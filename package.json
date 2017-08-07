@@ -1,0 +1,21 @@
+{
+  "name": "connect-choruses",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/eslint scripts"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "eslint": "^3.13.1",
+    "eslint-config-spotify": "^5.0.0",
+    "eslint-plugin-mocha": "^4.8.0",
+    "eslint-plugin-react": "^6.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@ghe.spotify.net:publicsdk/connect-choruses.git"
+  }
+}
