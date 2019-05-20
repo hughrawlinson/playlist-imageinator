@@ -1,5 +1,5 @@
 {
-  "name": "connect-choruses",
+  "name": "playlist-imaginator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,12 +10,11 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "eslint": "^3.13.1",
-    "eslint-config-spotify": "^5.0.0",
     "eslint-plugin-mocha": "^4.8.0",
     "eslint-plugin-react": "^6.9.0"
   },
   "repository": {
     "type": "git",
-    "url": "git@ghe.spotify.net:publicsdk/connect-choruses.git"
+    "url": "git@github.com:hughrawlinson/playlist-imaginator.git"
   }
 }
