@@ -1,13 +1,14 @@
 /* eslint-env browser */
-/* globals React ReactDOM fetch window document localStorage $ */
+/* globals React ReactDOM $ */
 (function main() {
   const queryParams = window.location.hash
     .substr(1)
     .split('&')
-    .map(e => e.split('='))
-    .reduce((acc, e) => Object.assign({}, acc, {
+    .map((e) => e.split('='))
+    .reduce((acc, e) => ({
+      ...acc,
       [e[0]]: e[1],
-    }), {});
+    }));
   window.location.hash = '';
 
   const authEndpoint = 'https://accounts.spotify.com/authorize';
@@ -38,6 +39,7 @@
       key: `playlistThumbnailDivThumbnailClass${id}`,
     }, [
       React.createElement('img', {
+        // eslint-disable-next-line react/prop-types
         src: images[0] ? images[0].url : '',
         className: 'img-responsive',
         key: `playlistCoverImage${id}`,
@@ -69,6 +71,7 @@
             clickEvent.preventDefault();
             document.getElementById('modal-title').text = `Change ${name}'s cover photo`;
             document.querySelector('input#playlist-id').value = id;
+            // eslint-disable-next-line react/prop-types
             document.querySelector('input#user-id').value = owner.id;
 
             $('#myModal').modal('show');
@@ -105,10 +108,11 @@
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      }).then(response => response.json()).then((data) => {
+      }).then((response) => response.json()).then((data) => {
         window.data = data;
         ReactDOM.render(React.createElement('div', null, data.items.map((e) => {
-          const obj = Object.assign({}, e, {
+          const obj = ({
+            ...e,
             key: `playlistThumbnail${e.id}`,
           });
           return React.createElement(PlaylistThumbnail, obj, null);
@@ -121,10 +125,13 @@
 
       $('#myModal').modal('hide');
 
-      const data = Array.prototype.map.bind(event.target)(e => ({
+      const data = Array.prototype.map.bind(event.target)((e) => ({
         value: e.value,
         name: e.attributes.name ? e.attributes.name.value : '',
-      })).reduce((acc, el) => Object.assign({}, acc, { [el.name]: el.value }));
+      })).reduce((acc, el) => ({
+        ...acc,
+        [el.name]: el.value,
+      }));
 
       const reader = new FileReader();
 
