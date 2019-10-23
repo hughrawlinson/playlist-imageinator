@@ -8,7 +8,7 @@
     .reduce((acc, e) => ({
       ...acc,
       [e[0]]: e[1],
-    }));
+    }), {});
   window.location.hash = '';
 
   const authEndpoint = 'https://accounts.spotify.com/authorize';
@@ -131,7 +131,7 @@
       })).reduce((acc, el) => ({
         ...acc,
         [el.name]: el.value,
-      }));
+      }), {});
 
       const reader = new FileReader();
 
