@@ -150,7 +150,6 @@
       render();
     });
 
-
     render();
   } else {
     // Something bad has happened, but we no-console
