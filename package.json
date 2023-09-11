@@ -9,7 +9,7 @@
   "author": "",
   "license": "UNLICENSED",
   "devDependencies": {
-    "eslint": "^8.36.0",
+    "eslint": "^8.49.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
